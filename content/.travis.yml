@@ -7,7 +7,7 @@ dotnet: 2.0.0
 
 script:
   - dotnet restore
-  - dotnet build
+  - dotnet build --configuration $configuration
   - dotnet test $testProjectDir/$testProjectName
   - "if [[ $TRAVIS_PULL_REQUEST == 'false' && $TRAVIS_TAG ]]; then 
   dotnet pack $projectDir/$projectName --configuration $configuration /p:Version=$TRAVIS_TAG;
