@@ -1,0 +1,44 @@
+{
+    "author": "Syncromatics Engineering",
+    "classifications": [
+        "DX/TravisCI/NetCore"
+    ],
+    "name": "Syncromatics Engineering TravisCI template for .NET Core projects",
+    "identity": "Syncromatics.Engineering.DX.TravisCI.NetCore",
+    "shortName": "syncdx-travisci-netcore",
+    "tags": {
+        "language": "yaml"
+    },
+    "sourceName": "Syncromatics.Engineering.DX.TravisCI.NetCore",
+    "preferNameDirectory": "false",
+    "symbols": {
+        "configuration": {
+            "type": "parameter",
+            "replaces": "$configuration",
+            "defaultValue": "Release",
+            "isRequired": false
+        },
+        "projectDir": {
+            "type": "parameter",
+            "replaces": "$projectDir",
+            "defaultValue": "src",
+            "isRequired": false
+        },
+        "projectName": {
+            "type": "parameter",
+            "replaces": "$projectName",
+            "isRequired": true
+        },
+        "testProjectDir": {
+            "type": "parameter",
+            "replaces": "$testProjectDir",
+            "defaultValue": "tests",
+            "isRequired": false
+        },
+        "testProjectName": {
+            "type": "parameter",
+            "replaces": "$testProjectName",
+            "isRequired": false
+        }
+    }
+}
