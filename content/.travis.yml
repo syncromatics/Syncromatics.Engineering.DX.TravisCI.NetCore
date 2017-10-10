@@ -1,0 +1,15 @@
+language: csharp
+
+os: linux
+dist: trusty
+sudo: required
+dotnet: 2.0.0
+
+script:
+  - dotnet restore
+  - dotnet build --configuration $configuration
+  - dotnet test $testProjectDir/$testProjectName
+  - "if [[ $TRAVIS_PULL_REQUEST == 'false' && $TRAVIS_TAG ]]; then 
+  dotnet pack $projectDir/$projectName --configuration $configuration /p:Version=$TRAVIS_TAG;
+  nuget push $projectDir/$projectName/bin/$configuration/*.nupkg -ApiKey $NUGET_API_KEY;
+  fi"

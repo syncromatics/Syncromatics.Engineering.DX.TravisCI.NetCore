@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Syncromatics.Engineering.DX.TravisCI.NetCore</id>
+    <version>0.0.0</version>
+    <description>
+      Travis CI template for NuGet packages built with .NET Core
+    </description>
+    <authors>Syncromatics Engineering</authors>
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+    <projectUrl>https://github.com/syncromatics/Syncromatics.Engineering.DX.TravisCI.NetCore</projectUrl>
+    <licenseUrl>https://github.com/syncromatics/Syncromatics.Engineering.DX.TravisCI.NetCore/blob/master/LICENSE</licenseUrl>
+  </metadata>
+</package>
