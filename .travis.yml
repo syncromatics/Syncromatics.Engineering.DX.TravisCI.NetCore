@@ -5,20 +5,13 @@ dist: trusty
 group: edge
 sudo: required
 mono: latest
-dotnet: 2.0.0
+dotnet: 2.1.402
 
 before_install:
   - mkdir -p .nuget
   - wget -O .nuget/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
-  - mono .nuget/nuget.exe
+  - curl -sL https://github.com/annymsMthd/gogitver/releases/download/0.5.1/linux.tar.gz | tar zx
 
 script:
-- mono .nuget/nuget.exe pack Syncromatics.Engineering.DX.TravisCI.NetCore.nuspec -Version ${TRAVIS_TAG:-0.0.0-$TRAVIS_COMMIT-$TRAVIS_BUILD_NUMBER}
-
-deploy:
-  provider: script
-  skip_cleanup: true
-  script:
-  - dotnet nuget push Syncromatics.Engineering.DX.TravisCI.NetCore.*.nupkg -s https://www.nuget.org/api/v2/package -k $NUGET_API_KEY
-  on: 
-    tags: true
+- mono .nuget/nuget.exe pack Syncromatics.Engineering.DX.TravisCI.NetCore.nuspec -Version $(./gogitver)
+- dotnet nuget push Syncromatics.Engineering.DX.TravisCI.NetCore.*.nupkg -s https://www.nuget.org/api/v2/package -k $NUGET_API_KEY
