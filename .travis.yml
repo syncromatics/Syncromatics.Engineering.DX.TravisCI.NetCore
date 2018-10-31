@@ -14,7 +14,7 @@ before_install:
   - curl -sL https://github.com/annymsMthd/gogitver/releases/download/0.5.1/linux.tar.gz | tar zx
 
 script:
-- mono .nuget/nuget.exe pack Syncromatics.Engineering.DX.TravisCI.NetCore.nuspec -Version $(./gogitver)}
+- mono .nuget/nuget.exe pack Syncromatics.Engineering.DX.TravisCI.NetCore.nuspec -Version $(./gogitver)
 
 deploy:
   provider: script
