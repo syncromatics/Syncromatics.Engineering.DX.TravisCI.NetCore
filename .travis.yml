@@ -8,6 +8,10 @@ git:
 before_install:
   - curl -sL https://github.com/annymsMthd/gogitver/releases/download/0.5.1/linux.tar.gz | tar zx
 
+before_script:
+  - git fetch -tv
+  - git fetch origin master:master
+
 script:
   - dotnet restore || travis_terminate 1
   - dotnet pack --no-restore Syncromatics.Engineering.DX.TravisCI.NetCore.csproj --configuration Release /p:Version=$(./gogitver) || travis_terminate 1;
