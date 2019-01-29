@@ -15,5 +15,5 @@ before_script:
 script:
   - dotnet restore || travis_terminate 1
   - dotnet test --no-restore $testProjectDir/$testProjectName || travis_terminate 1
-  - dotnet pack --no-restore $projectDir/$projectName --configuration $configuration /p:Version=$(./gogitver) || travis_terminate 1;
-  - dotnet nuget push $projectDir/$projectName/bin/$configuration/*.nupkg -s https://www.nuget.org/api/v2/package -k $NUGET_API_KEY || travis_terminate 1;
+  - dotnet pack --no-restore $projectDir/$projectName --configuration $configuration /p:Version=$(./gogitver) || travis_terminate 1
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then dotnet nuget push $projectDir/$projectName/bin/$configuration/*.nupkg -s https://www.nuget.org/api/v2/package -k $NUGET_API_KEY || travis_terminate 1; fi

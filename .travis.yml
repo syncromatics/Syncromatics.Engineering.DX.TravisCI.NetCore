@@ -14,5 +14,5 @@ before_script:
 
 script:
   - dotnet restore || travis_terminate 1
-  - dotnet pack --no-restore Syncromatics.Engineering.DX.TravisCI.NetCore.csproj --configuration Release /p:Version=$(./gogitver) || travis_terminate 1;
-  - dotnet nuget push bin/Release/*.nupkg -s https://www.nuget.org/api/v2/package -k $NUGET_API_KEY || travis_terminate 1;
+  - dotnet pack --no-restore Syncromatics.Engineering.DX.TravisCI.NetCore.csproj --configuration Release /p:Version=$(./gogitver) || travis_terminate 1
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then dotnet nuget push bin/Release/*.nupkg -s https://www.nuget.org/api/v2/package -k $NUGET_API_KEY || travis_terminate 1; fi
