@@ -31,13 +31,12 @@ _Remove any shields below that do not apply_
 [![NuGet Pre Release](https://img.shields.io/nuget/vpre/Syncromatics.Engineering.DX.TravisCI.NetCore.svg)](https://www.nuget.org/packages/Syncromatics.Engineering.DX.TravisCI.NetCore/)
 
 1. Ensure you have [installed .NET Core](https://www.microsoft.com/net/core)
-2. Ensure `nuget` is up to date with `nuget update -self`
-3. Run `nuget pack Syncromatics.Engineering.DX.TravisCI.NetCore.nuspec` in the root directory
+r. Run `dotnet pack Syncromatics.Engineering.DX.TravisCI.NetCore.csproj` in the root directory
 
 This will build a `Syncromatics.Engineering.DX.TravisCI.NetCore.0.0.0.nupkg` file that you can test locally by installing with the `dotnet new` command:
 
 ```bash
-dotnet new -i ./Syncromatics.Engineering.DX.TravisCI.NetCore.0.0.0.nupkg
+dotnet new -i ./bin/Debug/Syncromatics.Engineering.DX.TravisCI.NetCore.0.0.0.nupkg
 ```
 
 ## Code of Conduct
